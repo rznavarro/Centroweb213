@@ -1,0 +1,46 @@
+@import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Mono:wght@300;400&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-syne: "Syne", sans-serif;
+  --font-mono: "DM Mono", monospace;
+  
+  --color-bg: #080a0e;
+  --color-surface: #0d1117;
+  --color-border-dim: rgba(255, 255, 255, 0.06);
+  --color-border-hover: rgba(255, 255, 255, 0.14);
+  --color-text-main: #e8eaf0;
+  --color-text-muted: #5a6070;
+  --color-accent-purple: #7c6aff;
+  --color-accent-teal: #3df0c2;
+}
+
+@layer base {
+  body {
+    @apply bg-bg text-text-main font-mono antialiased min-h-screen relative overflow-x-hidden;
+  }
+
+  body::before {
+    content: '';
+    @apply fixed top-[-30%] left-1/2 -translate-x-1/2 w-[700px] h-[500px] pointer-events-none z-0;
+    background: radial-gradient(ellipse, rgba(124, 106, 255, 0.08) 0%, transparent 70%);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
+
+.animate-dot-pulse {
+  animation: pulse 2s infinite;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
